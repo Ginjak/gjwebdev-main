@@ -1,0 +1,73 @@
+:root {
+  --main-ligther-color: #1e2738;
+  --main-dark-color: #0f172a;
+  --main-blue-color: #1985a1;
+  --white: #fff;
+  --dark-txt-color: #94a3b8;
+}
+/* Font family
+
+Poppins
+
+*/
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--main-dark-color);
+  font-family: "Poppins", sans-serif;
+}
+
+.active {
+  color: #94a3b8;
+}
+
+.nav-btn {
+  color: #fff;
+  cursor: pointer;
+  display: block;
+  padding: 0px 24px;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 45px;
+  max-width: 160px;
+  position: relative;
+  text-decoration: none;
+  text-align: center;
+  width: 100%;
+  transition: all 1.35s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.btn-border-effect {
+  font-weight: 600;
+}
+.btn-border-effect svg {
+  height: 45px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+}
+
+.btn-border-effect rect {
+  fill: none;
+  stroke: #fff;
+  stroke-width: 2;
+  stroke-dasharray: 422, 0;
+  transition: all 0.35s linear;
+}
+
+.btn-border-effect:hover {
+  background: var(--main-blue-color);
+  transition: all 1.35s cubic-bezier(0.19, 1, 0.22, 1);
+}
+.btn-border-effect:hover rect {
+  stroke-width: 5;
+  stroke-dasharray: 15, 310;
+  stroke-dashoffset: 85;
+  transition: all 1.35s cubic-bezier(0.19, 1, 0.22, 1);
+}

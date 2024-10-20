@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              lighterBg: "#1e2738",
+            },
+          },
+        },
+      };
+    </script>
+    <link rel="stylesheet" href="./styles.css" />
+    <title>Components</title>
+  </head>
+  <body>
+    <header class="bg-lighterBg">
+      <div
+        id="navigation"
+        class="max-w-[1440px] m-auto flex justify-between items-center px-3"
+      >
+        <div class="log">
+          <p class="text-[40px] text-white tracking-[3.2px]">LOGO</p>
+        </div>
+        <nav class="flex gap-10">
+          <ul class="flex items-center gap-x-5 text-white font-semibold">
+            <li
+              class="tracking-wider hover:text-slate-400 transition-colors duration-300 cursor-pointer active"
+            >
+              <a href="#"> About </a>
+            </li>
+            <li
+              class="tracking-wider hover:text-slate-400 transition-colors duration-300 cursor-pointer"
+            >
+              <a href="#"> Portfolio </a>
+            </li>
+            <li
+              class="tracking-wider hover:text-slate-400 transition-colors duration-300 cursor-pointer"
+            >
+              <a href="#"> Pricing </a>
+            </li>
+            <li
+              class="tracking-wider hover:text-slate-400 transition-colors duration-300 cursor-pointer flex items-center"
+            >
+              <a href="#"> Insights </a>
+            </li>
+            <li
+              class="tracking-wider hover:text-slate-400 transition-colors duration-300 cursor-pointer"
+            >
+              <a href="#" class="nav-btn btn-border-effect">
+                <svg>
+                  <rect x="0" y="0" fill="none" width="100%" height="100%" />
+                </svg>
+                Let's chat
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <script src="./custom-js.js"></script>
+  </body>
+</html>
