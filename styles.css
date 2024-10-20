@@ -68,6 +68,6 @@ body {
 .btn-border-effect:hover rect {
   stroke-width: 5;
   stroke-dasharray: 15, 310;
-  stroke-dashoffset: 85;
+  stroke-dashoffset: 88;
   transition: all 1.35s cubic-bezier(0.19, 1, 0.22, 1);
 }
