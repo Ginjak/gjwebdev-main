@@ -27,6 +27,14 @@ body {
   overflow: hidden;
 }
 
+body.no-scroll {
+  overflow: hidden;
+}
+
+body.no-scroll .open-mobile-nav {
+  margin-right: calc(100vw - 100%);
+}
+
 .active {
   color: #94a3b8;
 }

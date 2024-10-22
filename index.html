@@ -17,6 +17,9 @@
             colors: {
               lighterBg: "#1e2738",
             },
+            height: {
+              "dvh-60": "calc(100dvh - 60px)",
+            },
           },
         },
       };
@@ -108,24 +111,27 @@
     </header>
 
     <main>
-      <section id="hero" class="relative min-h-dvh flex flex-col">
+      <section id="hero" class="relative h-dvh-60 flex flex-col">
         <div class="hero-bg absolute top-0 left-0 right-0 bottom-0"></div>
         <div
           class="max-w-[1440px] m-auto flex flex-col justify-between items-center px-3 relative"
         >
           <h2
-            class="text-slate-400 text-4xl font-bold leading-normal tracking-wide"
+            class="text-slate-400 md:text-4xl sm:text-3xl text-2xl font-bold leading-normal tracking-wide"
           >
             Heard. Seen.
           </h2>
           <h1
-            class="text-slate-100 text-6xl font-bold leading-normal tracking-wider"
+            class="text-slate-100 md:text-6xl text-4xl sm:text-5xl font-bold leading-normal tracking-wider"
           >
             Remembers
           </h1>
-          <span class="block text-slate-100 text-6xl font-bold">-</span>
+          <span
+            class="block text-slate-100 md:text-6xl text-4xl sm:text-5xl font-bold"
+            >-</span
+          >
           <p
-            class="text-slate-300 tracking-wide text-2xl max-w-4xl text-center mb-9"
+            class="text-slate-300 tracking-wide md:text-2xl sm:text-lg text-base max-w-4xl text-center mb-9"
           >
             Design office in Berlin Mitte. We create tailor-made brands that
             inspire in the long term. For companies of all sizes.

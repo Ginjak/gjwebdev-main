@@ -51,13 +51,12 @@ document.addEventListener("DOMContentLoaded", () => {
   // Usage
   const scrollbarWidth = getScrollbarWidth();
 
-  document.querySelector(".asdasd").style.paddingRight = `${scrollbarWidth}px`;
-
   // Hamburger mobile menu functionality
   hamburger.addEventListener("click", function () {
     const isOpen = nav.classList.toggle("is-open");
     this.classList.toggle("is-open");
     body.classList.toggle("no-scroll", isOpen);
-    this.style.marginRight = isOpen ? `${scrollbarWidth}px` : "0";
+    body.style.marginRight = isOpen ? `${scrollbarWidth}px` : "0";
+    hamburger.style.marginRight = isOpen ? `${scrollbarWidth}px` : "0";
   });
 });
