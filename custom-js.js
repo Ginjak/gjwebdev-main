@@ -1,92 +1,63 @@
-// Slide in sub menu when nav is not visible
 document.addEventListener("DOMContentLoaded", () => {
   const navigation = document.getElementById("navigation");
   const subNav = document.querySelector(".sub-nav");
+  const hamburger = document.getElementById("hamburger-menu");
+  const nav = document.getElementById("mobile-nav");
+  const body = document.body;
 
   let lastScrollY = window.scrollY;
 
-  // Initialize the subNav state on page load
-  function initializeSubNav() {
-    if (window.scrollY <= navigation.clientHeight) {
-      subNav.style.transform = "translateY(-100%)"; // Ensure subNav is hidden
-    } else {
-      subNav.style.transform = "translateY(0)"; // Show subNav if scrolled past nav
-    }
-  }
+  // Initialize subNav visibility based on scroll position
+  const updateSubNavVisibility = () => {
+    subNav.style.transform =
+      window.scrollY <= navigation.clientHeight
+        ? "translateY(-100%)"
+        : "translateY(0)";
+  };
 
   // Handle scroll events
-  function handleScroll() {
+  const handleScroll = () => {
     const currentScrollY = window.scrollY;
 
-    if (
-      currentScrollY > lastScrollY &&
-      currentScrollY > navigation.clientHeight
-    ) {
-      // Scrolling down and past the navigation
-      subNav.style.transform = "translateY(0)"; // Slide in
-    } else if (
-      currentScrollY < lastScrollY &&
-      currentScrollY <= navigation.clientHeight
-    ) {
-      // Scrolling up and navigation is in view
-      subNav.style.transform = "translateY(-100%)"; // Slide up and hide
-    }
+    subNav.style.transform =
+      currentScrollY > lastScrollY && currentScrollY > navigation.clientHeight
+        ? "translateY(0)"
+        : currentScrollY < lastScrollY &&
+          currentScrollY <= navigation.clientHeight
+        ? "translateY(-100%)"
+        : subNav.style.transform;
 
     lastScrollY = currentScrollY;
-  }
+  };
 
+  // Add event listeners
   window.addEventListener("scroll", handleScroll);
-  initializeSubNav(); // Call to set the initial state
-});
+  updateSubNavVisibility();
 
-// Calculate scrollbar width
-function getScrollbarWidth() {
-  const div = document.createElement("div");
-  div.style.overflow = "scroll";
-  div.style.width = "100px";
-  div.style.height = "100px";
-  div.style.position = "absolute";
-  div.style.visibility = "hidden"; // Prevent it from being visible
-  document.body.appendChild(div);
+  // Calculate scrollbar width
+  const getScrollbarWidth = () => {
+    const div = document.createElement("div");
+    div.style.cssText =
+      "overflow: scroll; width: 100px; height: 100px; position: absolute; visibility: hidden;";
+    const innerDiv = document.createElement("div");
+    innerDiv.style.width = "100%";
+    div.appendChild(innerDiv);
+    document.body.appendChild(div);
+    const scrollbarWidth = div.offsetWidth - innerDiv.offsetWidth;
+    div.remove(); // Cleanup
+    return scrollbarWidth;
+  };
 
-  const innerDiv = document.createElement("div");
-  innerDiv.style.width = "100%"; // Set to 100% to take the full width of the parent
-  innerDiv.style.height = "100px"; // Set a fixed height
-  div.appendChild(innerDiv);
+  // Usage
+  const scrollbarWidth = getScrollbarWidth();
 
-  const scrollbarWidth = div.offsetWidth - innerDiv.offsetWidth;
+  document.querySelector(".asdasd").style.paddingRight = `${scrollbarWidth}px`;
 
-  // Cleanup
-  div.remove();
-
-  return scrollbarWidth;
-}
-
-// Usage
-const scrollbarWidth = getScrollbarWidth();
-console.log("Scrollbar width:", scrollbarWidth);
-
-// Adjust content padding based on scrollbar width
-const contentDiv = document.querySelector(".asdasd");
-contentDiv.style.paddingRight = `${scrollbarWidth}px`; // Adjust padding based on scrollbar width
-
-// Hamburger mobile menu
-let hamburger = document.getElementById("hamburger-menu"),
-  nav = document.getElementById("mobile-nav"),
-  body = document.body; // Get the body element
-
-hamburger.addEventListener("click", function () {
-  this.classList.toggle("is-open");
-  nav.classList.toggle("is-open");
-
-  // Toggle class on body to disable scrolling
-  if (nav.classList.contains("is-open")) {
-    body.classList.add("no-scroll");
-    // Add margin-right to hamburger menu button based on scrollbar width
-    hamburger.style.marginRight = `${scrollbarWidth}px`;
-  } else {
-    body.classList.remove("no-scroll");
-    // Reset margin-right when mobile nav is closed
-    hamburger.style.marginRight = "0";
-  }
+  // Hamburger mobile menu functionality
+  hamburger.addEventListener("click", function () {
+    const isOpen = nav.classList.toggle("is-open");
+    this.classList.toggle("is-open");
+    body.classList.toggle("no-scroll", isOpen);
+    this.style.marginRight = isOpen ? `${scrollbarWidth}px` : "0";
+  });
 });

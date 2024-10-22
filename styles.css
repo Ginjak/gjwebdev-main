@@ -19,7 +19,7 @@ Poppins
 
 body {
   background: var(--main-dark-color);
-  font-family: "Poppins", sans-serif;
+  /* font-family: "Poppins", sans-serif; */
   height: 1400px;
 }
 
@@ -186,10 +186,12 @@ body {
   font-size: 1.4em;
   text-decoration: none;
   font-weight: bold;
+  transition: color 0.2s linear !important;
 }
 
 .mobile-nav a:hover {
   color: var(--main-ligther-color);
+  transition: color 0.2s linear !important;
 }
 
 .open-mobile-nav {
