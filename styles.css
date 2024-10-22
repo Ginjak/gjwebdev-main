@@ -19,7 +19,7 @@ Poppins
 
 body {
   background: var(--main-dark-color);
-  /* font-family: "Poppins", sans-serif; */
+  font-family: "Poppins", sans-serif;
   height: 1400px;
 }
 
@@ -31,7 +31,8 @@ body {
   color: #94a3b8;
 }
 
-.nav-btn {
+.nav-btn,
+.main-btn {
   color: #fff;
   cursor: pointer;
   display: block;
@@ -50,6 +51,7 @@ body {
 .btn-border-effect {
   font-weight: 600;
 }
+
 .btn-border-effect svg {
   height: 45px;
   position: absolute;
@@ -76,6 +78,20 @@ body {
   stroke-dasharray: 15, 310;
   stroke-dashoffset: 88;
   transition: all 1.35s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.btn-main-light {
+  background: var(--main-blue-color);
+}
+.btn-main-light-transparent {
+  background: var(--grey-color);
+}
+.btn-main-light:hover {
+  background: var(--grey-color);
+}
+.btn-main-light:hover rect,
+.btn-main-light-transparent:hover rect {
+  stroke-dashoffset: 48;
 }
 
 /* Sub navigation */
@@ -246,4 +262,35 @@ body {
 .is-open .hamburger-menu:after {
   transform: translateY(-12px) translateX(10px) skew(-20deg);
   opacity: 0;
+}
+
+/* Hero */
+
+#hero {
+}
+.hero-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0)),
+    url("./img/hero_test.webp") no-repeat center center/cover;
+  filter: grayscale(100%) brightness(30%);
+  /* filter: sepia(300%); */
+  /* filter: invert(100%); */
+  /* filter: brightness(150%); */
+  /* filter: contrast(200%); */
+  /* filter: saturate(0%); */
+  /* filter: blur(2px); */
+}
+.hero-bg:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(15, 23, 42, 0.5);
+  z-index: 1;
 }
